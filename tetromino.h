@@ -15,16 +15,19 @@ class Tetromino {
   // 테트로미노의 모양을 저장하는 배열
   // shape[x][y]가 true인 경우 x, y 위치에 블록이 있는 것이고 false의 경우 없는
   // 것이다.
-  bool shape_[MAX_SIZE][MAX_SIZE];
+  bool shape_[MAX_SIZE][MAX_SIZE] = {false};
 
   // 회전되지 않은 원래 테트로미노 객체를 저장하는 포인터
   Tetromino *original_;
 
-  // 테트로미노의 사이즈
+  // 테트로미노의 수사이즈
   int size_;
 
+  // shape bool 배열 복사
+  void changedShaped(bool (&changedshape_)[MAX_SIZE][MAX_SIZE]);
+
 public:
-  // 사이즈와 shape 문자열을 통해 생성한다.
+  // 사이즈와 shape 문자열을 통해 생성한다사사
   // 문자열은 size * size 길이의 문자열이 주어진다.
 
   // 블록이 존재한다면 O를 통해 표시하고 아니라면 X를 통해 표시한다.

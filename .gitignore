@@ -1,3 +1,6 @@
 *.o
 main
 main.exe
+
+*.ps1
+*.json

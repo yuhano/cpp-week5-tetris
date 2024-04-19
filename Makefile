@@ -8,8 +8,8 @@ endif
 
 all: main
 
-main: main.o game.o tetromino.o console.o
-	$(CC) $(LINKER_FLAGS) -o main main.o game.o tetromino.o console.o
+main: main.o game.o tetromino.o console.o timer.o display.o board.o
+	$(CC) $(LINKER_FLAGS) -o main main.o game.o tetromino.o console.o timer.o display.o board.o
 
 console.o: console/console.cpp console/console.h
 	$(CC) $(FLAGS) -c -o console.o console/console.cpp
@@ -23,5 +23,16 @@ game.o: game.cpp game.h tetromino.h
 tetromino.o: tetromino.cpp tetromino.h
 	$(CC) $(FLAGS) -c -o tetromino.o tetromino.cpp
 
+timer.o: timer.cpp timer.h
+	$(CC) $(FLAGS) -c -o timer.o timer.cpp
+
+display.o: display.cpp display.h
+	$(CC) $(FLAGS) -c -o display.o display.cpp
+
+board.o: board.cpp board.h
+	$(CC) $(FLAGS) -c -o board.o board.cpp
+
 clean:
-	rm -f *.o main.exe main
+	del /Q *.o
+	del /Q *.exe
+
